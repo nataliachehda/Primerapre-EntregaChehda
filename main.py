@@ -21,7 +21,7 @@ def mostrar_usuarios(base_de_datos):
         print(f" - Usuario: {usuario}, Email: {datos['email']}")
     print(separador())
 
-# Función para inicio de sesión 
+# Función para inicio de sesión (hago el return true o false para luego hacer el control del inicio de sesión en la función sesion_iniciada)
 def iniciar_sesion(usuario, contraseña, base_de_datos):
     if usuario in base_de_datos and base_de_datos[usuario]["contraseña"] == contraseña:
         print(separador())
