@@ -2,11 +2,12 @@ import json
 import os
 from package1 import Cliente
 from package1.Cliente import Cliente
+from package1.Cliente import guardar_base_de_datos
 from package1.Cliente import base_de_datos
 from package1 import Celulares
 from package1.Celulares import Celulares
 
-cliente = None 
+cliente = None  # Inicializar la variable cliente fuera del bucle while
 
 # Menú principal del programa
 while True:
@@ -54,3 +55,5 @@ while True:
     else:
         print("Opción inválida. Por favor, seleccione un número válido.")
         input("Presione Enter para continuar...")
+
+guardar_base_de_datos (base_de_datos)
