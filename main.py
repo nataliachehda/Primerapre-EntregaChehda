@@ -1,4 +1,10 @@
 import json
+import os
+from package1 import Cliente
+from package1.Cliente import Cliente
+from package1.Cliente import base_de_datos
+from package1 import Celulares
+from package1.Celulares import Celulares
 
 # Pongo una línea separadora para que sea fácil de entender visualmente, porque el while repite el menú
 def separador():
@@ -52,34 +58,45 @@ sesion_iniciada = False
 
 # Menú principal del programa
 while True:
-    print(separador())
-    print("Bienvenid@ a nuestra plataforma 'π-thonicos'")
+    os.system("cls")
+    print("Bienvenid@ a CeluWorld. Si desea realizar una compra, inicie sesión")
     print("1. Registrar un nuevo usuario")
-    print("2. Mostrar usuarios registrados")
-    if not sesion_iniciada:
-        print("3. Iniciar sesión")
+    print("2. Iniciar sesión")
+    print("3. Comprar")
     print("4. Salir")
 
     opcion = input("\nSeleccione una opción: ")
 
     if opcion == "1":
+        nombre = input("Ingrese su nombre completo: ")
         usuario = input("Ingrese un nombre de usuario: ")
-        contraseña = input("Ingrese una contraseña: ")
+        password = input("Ingrese una contraseña: ")
         email = input("Ingrese un correo electrónico: ")
-        registrar_usuario(usuario, contraseña, email, base_de_datos)
+        direccion = input("Ingrese su dirección (calle, número, ciudad): ")
+        os.system("cls")
+        cliente = Cliente(nombre, usuario, password, email, direccion)
+        cliente.registrarse(base_de_datos)
         guardar_base_de_datos(base_de_datos)
 
-    elif opcion == "2":
-        mostrar_usuarios(base_de_datos)
-
-    elif opcion == "3" and not sesion_iniciada:
+        
+    elif opcion == "2":        
         usuario = input("Ingrese su nombre de usuario: ")
-        contraseña = input("Ingrese su contraseña: ")
-        sesion_iniciada = iniciar_sesion(usuario, contraseña, base_de_datos)
+        password = input("Ingrese su contraseña: ")
+        os.system("cls")
+        cliente = Cliente("", usuario, password, "", "")
+        cliente.iniciar_sesion(base_de_datos)
+        input("Presione Enter para continuar...")
+
+    elif opcion == "3":
+        if cliente is None:
+            print("Por favor, inicie sesión antes de realizar una compra.")
+            input("Presione Enter para continuar...")
+        else:
+            celulares = Celulares("", "", 0)
+            celulares.comprar(cliente, base_de_datos)
 
     elif opcion == "4":
-        print(separador())
-        print("Gracias por visitarnos. ¡Hasta luego, amig@ π-thonero! y no olvidés visitarnos pronto para ver nuestras novedades")
+        print("Gracias por visitarnos. Recuerda volver para conocer nuestras últimas novedades.")
         break
 
     else:
