@@ -6,6 +6,9 @@ class Celulares:
         self.marca = marca
         self.nombre = nombre
         self.precio = precio
+        
+    def __str__(self):
+        return f"{self.marca} - {self.nombre} - ${self.precio}"
 
     def comprar(self, cliente, base_de_datos):
         if not cliente.iniciar_sesion(base_de_datos):
@@ -24,7 +27,7 @@ class Celulares:
         # Mostrar el menú de celulares disponibles
         print("Seleccione los celulares que desea comprar:")
         for i, celular in enumerate(celulares_disponibles, 1):
-            print(f"{i}. {celular.marca} - {celular.nombre} - ${celular.precio}")
+            print(f"{i}. {celular}")
         
         # Pedir al usuario que elija los celulares
         while True:
