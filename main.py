@@ -52,7 +52,8 @@ while True:
     elif opcion == "4":
         print("Gracias por visitarnos. Recuerda volver para conocer nuestras últimas novedades.")
         break
-
     else:
-        print(separador())
-        print("Opción inválida. Por favor, seleccione un número del 1 al 4.")
+        print("Opción inválida. Por favor, seleccione un número válido.")
+        input("Presione Enter para continuar...")
+
+guardar_base_de_datos (base_de_datos)
