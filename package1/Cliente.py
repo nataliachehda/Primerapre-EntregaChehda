@@ -8,6 +8,9 @@ class Cliente:
         self.email = email
         self.direccion = direccion
 
+    def __str__(self):
+        return f"Nombre: {self.nombre} - Dirección: {self.direccion} - Email: {self.email}"
+
     def registrarse(self, base_de_datos):
         if self.usuario not in base_de_datos:
             base_de_datos[self.usuario] = {
@@ -22,11 +25,13 @@ class Cliente:
         else:
             print(f"El usuario {self.usuario} ya existe en la base de datos.")
             return None, None, None
-    def mostrar_datos (self, nombre, email, direccion):
-        return self.nombre, self.email, self.direccion
 
     def iniciar_sesion(self, base_de_datos):
         if self.usuario in base_de_datos and base_de_datos[self.usuario]["password"] == self.password:
+            datos_usuario = base_de_datos[self.usuario]
+            self.nombre = datos_usuario["nombre"]
+            self.email = datos_usuario["email"]
+            self.direccion = datos_usuario["direccion"]
             print(f"¡Bienvenid@ a CeluWorld, {self.usuario}! Los mejores celulares para vos😎")
             return True
         else:

@@ -47,9 +47,9 @@ class Celulares:
                 total += celular.precio
             print(f"\nTotal: ${total}")
             print("Orden de Compra:")
-            print(f"Cliente: {cliente.mostrar_datos(self.nombre)}")  
-            print(f"Email: {cliente.mostrar_datos(self.email)}")  
-            print(f"Dirección: {cliente.mostrar_datos(self.direccion)}")  
+            print(f"Cliente: {cliente.nombre}")
+            print(f"Email: {cliente.email}")
+            print(f"Dirección: {cliente.direccion}")
             print("¡La orden de compra será enviada a su email para ser abonada!")
         else:
             print("No se han seleccionado celulares. La compra ha sido cancelada.")
