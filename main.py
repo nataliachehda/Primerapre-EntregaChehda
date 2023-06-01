@@ -7,7 +7,7 @@ from package1.Cliente import base_de_datos
 from package1 import Celulares
 from package1.Celulares import Celulares
 
-cliente = None  # Inicializar la variable cliente fuera del bucle while
+cliente = None 
 
 # Menú principal del programa
 while True:

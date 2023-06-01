@@ -1,0 +1,8 @@
+setup.py
+Registro_usuarios.egg-info/PKG-INFO
+Registro_usuarios.egg-info/SOURCES.txt
+Registro_usuarios.egg-info/dependency_links.txt
+Registro_usuarios.egg-info/top_level.txt
+package1/Celulares.py
+package1/Cliente.py
+package1/__init__.py
